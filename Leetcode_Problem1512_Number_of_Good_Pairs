@@ -1,0 +1,22 @@
+int numIdenticalPairs(int* nums, int numsSize){
+    int good = 0;
+    for( int i = 0 ; i < numsSize - 1 ; i++)
+        for( int j = i + 1 ; j < numsSize ; j++)
+            if(nums[i] == nums[j])
+                good++;
+    return good;
+}
+
+
+
+-----------------------------------------------------------------------
+
+
+
+int numIdenticalPairs(int* nums, int numsSize){
+    int* hash_table = (int*)calloc(101,sizeof(int));
+    int good = 0;
+    for(int i = 0 ; i < numsSize ; i++)
+        good += hash_table[nums[i]]++;
+    return good;
+}
